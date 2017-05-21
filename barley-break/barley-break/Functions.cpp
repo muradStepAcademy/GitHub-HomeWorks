@@ -2,18 +2,25 @@
 #include <time.h>
 #include <conio.h>
 #include <Windows.h>
+#include <cstdlib>
 using namespace std;
 
 int zeroY, zeroX, key;
+int cheatY , cheatX ;
 int EasyField[3][3] = {};
 int NormalField[4][4] = {};
+int HardField[6][6] = {};
+
+int box;
+int selected = 0;
+int num = 0;
 
 HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
 void complexityMenu();
 
 void NormalInitilization()
 {
-	int  x , y , num = 0;
+	int  x, y;
 	srand(time(0));
 	while (num <= 15)
 	{
@@ -47,7 +54,7 @@ void NormalDraw()
 			SetConsoleCursorPosition(h, { short(positionX),short(positionY) });
 			if (NormalField[j][i] == 0)
 			{
-				SetConsoleTextAttribute(h,14);
+				SetConsoleTextAttribute(h,155);
 				cout << char(219) << char(219);
 				zeroY = j; zeroX = i;
 				SetConsoleTextAttribute(h, 15);
@@ -64,7 +71,6 @@ void NormalDraw()
 }
 void NormalMove()
 {
-	int box;
 	key = getch();
 	if (key == 224)
 	{
@@ -98,10 +104,35 @@ void NormalMove()
 	{
 		complexityMenu();
 	}
+	if (key == 23)
+	{
+		num = 1;
+		for (int j = 0; j < 4; j++)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				NormalField[j][i] = num;
+				num++;
+			}
+		}
+		NormalField[3][3] = 0;
+	}
+	if (key == 3)
+	{
+		SetConsoleCursorPosition(h, { 0,15 });
+		cout << "Enter Y coordinate :" << endl;
+		cin >> cheatY;
+		SetConsoleCursorPosition(h, { 0,17 });
+		cout << "Enter X coordinate :" << endl;
+		cin >> cheatX;
+		box = HardField[cheatY][cheatX];
+		HardField[cheatY][cheatX] = 0;
+		HardField[zeroY][zeroX] = box;
+	}
 }
 void EasyInitilization()
 {
-	int  x, y, num = 0;
+	int  x, y;
 	srand(time(0));
 	while (num <= 8)
 	{
@@ -135,7 +166,7 @@ void EasyDraw()
 			SetConsoleCursorPosition(h, { short(positionX),short(positionY) });
 			if (EasyField[j][i] == 0)
 			{
-				SetConsoleTextAttribute(h, 14);
+				SetConsoleTextAttribute(h, 155);
 				cout << char(219) << char(219);
 				zeroY = j; zeroX = i;
 				SetConsoleTextAttribute(h, 15);
@@ -152,7 +183,6 @@ void EasyDraw()
 }
 void EasyMove()
 {
-	int box;
 	key = getch();
 	if (key == 224)
 	{
@@ -186,10 +216,212 @@ void EasyMove()
 	{
 		complexityMenu();
 	}
+	if (key == 23)
+	{
+		num = 1;
+		for (int j = 0; j < 3; j++)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				EasyField[j][i] = num;
+				num++;
+			}
+		}
+		EasyField[2][2] = 0;
+	}
+	if (key == 3)
+	{
+		SetConsoleCursorPosition(h, { 0,15 });
+		cout << "Enter Y coordinate :" << endl;
+		cin >> cheatY;
+		SetConsoleCursorPosition(h, { 0,17 });
+		cout << "Enter X coordinate :" << endl;
+		cin >> cheatX;
+		box = EasyField[cheatY][cheatX];
+		EasyField[cheatY][cheatX] = 0;
+		EasyField[zeroY][zeroX] = box;
+	}
+}
+void HardInitilization()
+{
+	int  x, y;
+	srand(time(0));
+	while (num <= 35)
+	{
+		x = rand() % 6; y = rand() % 6;
+		if (HardField[y][x] == 0)
+		{
+			HardField[y][x] = num;
+			num++;
+		}
+	}
+}
+void HardDraw()
+{
+	system("cls");
+	SetConsoleTextAttribute(h, 14);
+	SetConsoleCursorPosition(h, { 10,4 });
+	cout << " ____   __   ____  __    ____  _  _     ____  ____  ____   __   __ _ ";
+	SetConsoleCursorPosition(h, { 10,5 });
+	cout << "(  _ \\ / _\\ (  _ \\(  )  (  __)( \\/ )___(  _ \\(  _ \\(  __) / _\\ (  / )";
+	SetConsoleCursorPosition(h, { 10,6 });
+	cout << " ) _ (/    \\ )   // (_/\\ ) _)  )  /(___)) _ ( )   / ) _) /    \\ )  ( ";
+	SetConsoleCursorPosition(h, { 10,7 });
+	cout << "(____/\\_/\\_/(__\\_)\\____/(____)(__/     (____/(__\\_)(____)\\_/\\_/(__\\_)";
+
+	int positionX = 35, positionY = 10;
+	SetConsoleTextAttribute(h, 15);
+	for (int j = 0; j < 6; j++)
+	{
+		for (int i = 0; i < 6; i++)
+		{
+			SetConsoleCursorPosition(h, { short(positionX),short(positionY) });
+			if (HardField[j][i] == 0)
+			{
+				SetConsoleTextAttribute(h, 155);
+				cout << char(219) << char(219);
+				zeroY = j; zeroX = i;
+				SetConsoleTextAttribute(h, 15);
+			}
+			else
+			{
+				cout << HardField[j][i];
+			}
+			positionX += 4;
+		}
+		positionX = 35;
+		positionY += 2;
+	}
+}
+void HardMove()
+{
+	key = getch();
+	if (key == 224)
+	{
+		key = getch();
+		if (key == 72 && zeroY > 0)
+		{
+			box = HardField[zeroY - 1][zeroX];
+			HardField[zeroY - 1][zeroX] = 0;
+			HardField[zeroY][zeroX] = box;
+		}
+		if (key == 80 && zeroY < 6 - 1)
+		{
+			box = HardField[zeroY + 1][zeroX];
+			HardField[zeroY + 1][zeroX] = 0;
+			HardField[zeroY][zeroX] = box;
+		}
+		if (key == 77 && zeroX < 6 - 1)
+		{
+			box = HardField[zeroY][zeroX + 1];
+			HardField[zeroY][zeroX + 1] = HardField[zeroY][zeroX];
+			HardField[zeroY][zeroX] = box;
+		}
+		if (key == 75 && zeroX > 0)
+		{
+			box = HardField[zeroY][zeroX - 1];
+			HardField[zeroY][zeroX - 1] = HardField[zeroY][zeroX];
+			HardField[zeroY][zeroX] = box;
+		}
+	}
+	if (key == 27)
+	{
+		complexityMenu();
+	}
+	if (key == 23)
+	{
+		num = 1;
+		for (int j = 0; j < 6; j++)
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				HardField[j][i] = num;
+				num++;
+			}
+		}
+		HardField[5][5] = 0;
+	}
+	if (key == 3)
+	{
+		SetConsoleCursorPosition(h, { 0,15 });
+		cout << "Enter Y coordinate :" << endl;
+		cin >> cheatY;
+		SetConsoleCursorPosition(h, { 0,17 });
+		cout << "Enter X coordinate :" << endl;
+		cin >> cheatX;
+		box = HardField[cheatY][cheatX];
+		HardField[cheatY][cheatX] = 0;
+		HardField[zeroY][zeroX] = box;
+	}
+}
+
+void youWin()
+{
+	bool win = true;
+	if (selected == 0)
+	{
+		int winEasyField[3][3] = { 1,2,3,4,5,6,7,8,0 };
+		for (int j = 0; j < 3; j++)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if (winEasyField[j][i] != EasyField[j][i])
+				{
+					win = false;
+				}
+			}
+		}
+	}
+	else if (selected == 1)
+	{
+		int winNormalField[4][4] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,0 };
+		for (int j = 0; j < 4; j++)
+		{
+			for (int i = 0; i < 4; i++)
+			{
+				if (winNormalField[j][i] != NormalField[j][i])
+				{
+					win = false;
+				}
+			}
+		}
+	}
+	else if (selected == 2)
+	{
+		int winHardField[6][6] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,
+			25,26,27,28,29,30,31,32,33,34,35,0 };
+		for (int j = 0; j < 6; j++)
+		{
+			for (int i = 0; i < 6; i++)
+			{
+				if (winHardField[j][i] != HardField[j][i])
+				{
+					win = false;
+				}
+			}
+		}
+	}
+	if (win)
+	{
+		SetConsoleTextAttribute(h, 15);
+		SetConsoleCursorPosition(h, { 24,21 });
+		cout << " _____.___.               __      __.__         ";
+		SetConsoleCursorPosition(h, { 24,22 });
+		cout << " \\__  |   | ____  __ __  /  \\    /  \\__| ____   ";
+		SetConsoleCursorPosition(h, { 24,23 });
+		cout << "  /   |   |/  _ \\|  |  \\ \\   \\/\\/   /  |/    \\  ";
+		SetConsoleCursorPosition(h, { 24,24 });
+		cout << "  \\____   (  <_> )  |  /  \\        /|  |   |  \\ ";
+		SetConsoleCursorPosition(h, { 24,25 });
+		cout << "  / ______|\\____/|____/    \\__/\\  / |__|___|  / ";
+		SetConsoleCursorPosition(h, { 24,26 });
+		cout << "  \\/                            \\/          \\/  ";
+		SetConsoleCursorPosition(h, { 32,27 });
+		exit(0);
+	}
 }
 void complexityMenu()
 {
-	int selected = 0;
 	int key;
 	while (true)
 	{
@@ -255,6 +487,7 @@ void complexityMenu()
 				while (true)
 				{
 					EasyDraw();
+					youWin();
 					EasyMove();
 				}
 			}
@@ -264,7 +497,18 @@ void complexityMenu()
 				while (true)
 				{
 					NormalDraw();
+					youWin();
 					NormalMove();
+				}
+			}
+			if (selected == 2)
+			{
+				HardInitilization();
+				while (true)
+				{
+					HardDraw();
+					youWin();
+					HardMove();
 				}
 			}
 		}
