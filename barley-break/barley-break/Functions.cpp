@@ -417,6 +417,7 @@ void youWin()
 		SetConsoleCursorPosition(h, { 24,26 });
 		cout << "  \\/                            \\/          \\/  ";
 		SetConsoleCursorPosition(h, { 32,27 });
+		system("pause");
 		exit(0);
 	}
 }

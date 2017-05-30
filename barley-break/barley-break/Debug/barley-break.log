@@ -1,4 +1,5 @@
-﻿  Functions.cpp
+﻿  Source.cpp
+  Functions.cpp
 c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(24): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(74): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\conio.h(452): note: see declaration of 'getch'
@@ -14,9 +15,10 @@ c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(298
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\conio.h(452): note: see declaration of 'getch'
 c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(301): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\conio.h(452): note: see declaration of 'getch'
-c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(472): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(473): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\conio.h(452): note: see declaration of 'getch'
-c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(475): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+c:\users\hp\desktop\github-homeworks\barley-break\barley-break\functions.cpp(476): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.15063.0\ucrt\conio.h(452): note: see declaration of 'getch'
+  Generating Code...
   barley-break.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\barley-break\Debug\barley-break.exe
   barley-break.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\barley-break\Debug\barley-break.pdb (Partial PDB)

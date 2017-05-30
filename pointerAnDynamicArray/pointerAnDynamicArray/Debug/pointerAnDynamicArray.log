@@ -1,0 +1,7 @@
+﻿  Functions.cpp
+c:\users\hp\desktop\blackboard\functions.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\hp\desktop\blackboard\functions.cpp(23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\hp\desktop\blackboard\functions.cpp(46): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\hp\desktop\blackboard\functions.cpp(73): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  pointerAnDynamicArray.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\pointerAnDynamicArray\Debug\pointerAnDynamicArray.exe
+  pointerAnDynamicArray.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\pointerAnDynamicArray\Debug\pointerAnDynamicArray.pdb (Partial PDB)
