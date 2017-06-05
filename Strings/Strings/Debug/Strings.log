@@ -1,0 +1,6 @@
+﻿  Source.cpp
+  Functions.cpp
+  Generating Code...
+c:\users\hp\desktop\consoleapplication57\consoleapplication57\functions.cpp(113): warning C4715: 'mystrstr': not all control paths return a value
+  Strings.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\Strings\Debug\Strings.exe
+  Strings.vcxproj -> C:\Users\HP\Desktop\GitHub-HomeWorks\Strings\Debug\Strings.pdb (Partial PDB)
