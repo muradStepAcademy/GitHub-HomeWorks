@@ -44,21 +44,33 @@ void main()
 	//cin >> s;
 	//mystrchr(str1, s);
 	//e-
-	char * str1 = new char[1000];
+	/*char * str1 = new char[1000];
 	cin.getline(str1,1000);
 	str1 = newStr(str1);
 	
 	char * str2 = new char[1000];
 	cin.getline(str2, 1000);
 	str2 = newStr(str2);
+	char * result = mystrstr(str1, str2);
+	if (result != 0)
+		cout << result << endl;*/
+	////f-
+	//char * str1 = new char[1000];
+	//cin.getline(str1, 1000);
+	//str1 = newStr(str1);
 
-	cout<<mystrstr(str1,str2);
+	//char * str2 = new char[1000];
+	//cin.getline(str2, 1000);
+	//str2 = newStr(str2);
+	//int result = mystrcmp(str1, str2);
+	//cout << result << endl;
 
+	//g-
+	char * str1 = new char[1000];
+	cin.getline(str1, 1000);
+	str1 = newStr(str1);
 
+	cout << StringToNumber(str1);
 
-
-	
-	
-	
 
 }

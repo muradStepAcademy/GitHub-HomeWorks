@@ -102,7 +102,41 @@ char * mystrstr(char * str1, char * str2)
 	{
 		for (int i = 0; i < mystrlen(str1); i++)
 		{
-			
+			if (str1[i] != str2[index])
+				index = 0;
+			else if (str1[i] == str2[index])
+				index++;
+			if (index == mystrlen(str2))
+				return &str1[i - mystrlen(str2) + 1];
 		}
+		cout << "Not found!" << endl;
+		return 0;
 	}
+	else
+		cout << "Can't to search your text in first string\n\tbecause second string greater than first ..." << endl;
+	return 0;
+}
+int mystrcmp(const char * str1, const char * str2)
+{
+	int index = 0;
+	while(str1[index] != '\0' || str2[index] != '\0')
+	{
+		if (str1[index] < str2[index])
+			return 1;	
+		else if (str1[index] > str2[index])
+			return -1;
+		index++;
+	}
+		return 0;	
+}
+int StringToNumber(char * str)
+{
+	int x = 1 ,  num = 0;
+	for (int i = mystrlen(str)-1 ; i >= 0; i--)
+		if (int(str[i]) >= 48 && int(str[i]) <= 57)
+		{
+			num += str[i] - 48 * x;
+			x *= 10;
+		}
+	return num;
 }
